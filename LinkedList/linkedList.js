@@ -109,3 +109,5 @@ myList.prepend(1);
 
 console.log(myList.printList());
 console.log(myList.reverse());
+
+console.log('MyList Class: ', myList);
