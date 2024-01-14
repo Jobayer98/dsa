@@ -30,15 +30,29 @@ class LinkList:
             current_node = current_node.next
             
         return list_value
+
+    def getDecimalValue(self):
+        current_node = self.head
+        b_str = ""
+        dec_v = 0
+        while current_node is not None:
+            b_str = str(current_node.data) + b_str
+            current_node = current_node.next
+        b_list = list(b_str)
         
+        for i in range(len(b_list)):
+            if b_list[i] != '0':
+                dec_v += pow(2, i)
+                
+        return dec_v
         
         
 def main():
-    myList = LinkList(5)
-    myList.append(10)
-    myList.append(15)
-    myList.prepend(8)
+    myList = LinkList(1)
+    myList.append(0)
+    myList.append(1)
     print(myList.printList())
+    myList.getDecimalValue()
 
 if __name__== '__main__':
     main()
