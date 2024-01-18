@@ -35,6 +35,18 @@ class LinkList:
             
         return list_value
 
+    def reverse(self):
+        p = self.head
+        q = None
+        r = None
+        while p != None:
+          r = q
+          q = p
+          p = p.next
+          q.next = r
+          
+        self.head = q
+        
     def getDecimalValue(self):
         current_node = self.head
         b_str = ""
@@ -62,15 +74,36 @@ class LinkList:
             current_pointer = current_pointer.next
 
         self.head = current_pointer 
+
+    def countNode (self):
+        c = 0
+        current_node = self.head
+        while(current_node != None):
+            c += 1
+            current_node = current_node.next
+        return c;
     
+    def sumOfNode(self):
+        current_node = self.head
+        sum = 0
+        while(current_node != None):
+            sum += current_node.data
+            current_node = current_node.next
+        return sum
+        
+  
 def main():
-    myList = LinkList(1)
+    myList = LinkList(5)
+    myList.append(8)
+    myList.append(6)
+    myList.append(1)
     myList.append(2)
-    myList.append(3)
-    myList.append(4)
-    myList.append(5)
-    myList.middleNode()
-    print(myList.printList())
+    # myList.middleNode() 
+    # print(myList.printList())
+    # myList.reverse()
+    # print(myList.printList())
+    print(myList.countNode())
+    print(myList.sumOfNode())
 
 if __name__== '__main__':
     main()
