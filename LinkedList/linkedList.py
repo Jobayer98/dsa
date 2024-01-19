@@ -90,20 +90,29 @@ class LinkList:
             sum += current_node.data
             current_node = current_node.next
         return sum
-        
+      
+    def removeDuplicates(self):
+        current_node = self.head
+        while current_node.next != None:
+            if (current_node.data == current_node.next.data):
+                current_node.next = current_node.next.next
+            else:
+                current_node = current_node.next
   
 def main():
-    myList = LinkList(5)
-    myList.append(8)
-    myList.append(6)
+    myList = LinkList(1)
     myList.append(1)
     myList.append(2)
+    # myList.append(3)
+    # myList.append(3)
+    myList.removeDuplicates()
+    
+    print(myList.printList())
     # myList.middleNode() 
-    # print(myList.printList())
     # myList.reverse()
     # print(myList.printList())
-    print(myList.countNode())
-    print(myList.sumOfNode())
+    # print(myList.countNode())
+    # print(myList.sumOfNode())
 
 if __name__== '__main__':
     main()
