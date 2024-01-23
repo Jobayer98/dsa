@@ -98,15 +98,39 @@ class LinkList:
                 current_node.next = current_node.next.next
             else:
                 current_node = current_node.next
-  
+ 
+    def reverse(self):
+        p = self.head
+        q = r = None
+        while p:
+            r = q
+            q = p
+            p = p.next
+            q.next = r
+        self.head = q
+            
+    def concat_node(self):
+        c_pointer = self.head
+        x = ''
+        while c_pointer:
+            x += str(c_pointer.data)
+            c_pointer = c_pointer.next
+            
+        return int(x)
+    
+    def sum(self):
+        pass
+        
 def main():
     myList = LinkList(1)
     myList.append(1)
     myList.append(2)
     # myList.append(3)
     # myList.append(3)
-    myList.removeDuplicates()
+    # myList.removeDuplicates()
     
+    myList.reverse()
+    print(myList.concat_node())
     print(myList.printList())
     # myList.middleNode() 
     # myList.reverse()
